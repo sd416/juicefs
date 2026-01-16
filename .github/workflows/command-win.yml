@@ -30,22 +30,22 @@ jobs:
       Actions_Allow_Unsecure_Commands: true
     steps:
       - name: Set up Go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v6
         with:
           go-version: '1.21'
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
 
       - name: Setup MSBuild.exe
         if: false
-        uses: microsoft/setup-msbuild@v1.0.3
+        uses: microsoft/setup-msbuild@v2.0.0
 
       - name: Change Winsdk Version
         if: false
-        uses: GuillaumeFalourd/setup-windows10-sdk-action@v1
+        uses: GuillaumeFalourd/setup-windows10-sdk-action@v2
         with:
           sdk-version: 18362
 

@@ -52,7 +52,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
 
@@ -157,7 +157,7 @@ jobs:
     if: always()
     steps:
       - uses: technote-space/workflow-conclusion-action@v3
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Check Failure
         if: env.WORKFLOW_CONCLUSION == 'failure'

@@ -35,11 +35,11 @@ jobs:
         # chaos: ["minio-io"]
     steps:        
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
 
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v6
         with:
           go-version: 'oldstable'
           cache: true
@@ -52,7 +52,7 @@ jobs:
           make juicefs
 
       - name: Creating kind cluster
-        uses: helm/kind-action@v1.5.0
+        uses: helm/kind-action@v1.13.0
 
       - name: Print cluster information
         run: |
@@ -267,7 +267,7 @@ jobs:
     if: always()
     steps:
       - uses: technote-space/workflow-conclusion-action@v3
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Check Failure
         if: env.WORKFLOW_CONCLUSION == 'failure'
