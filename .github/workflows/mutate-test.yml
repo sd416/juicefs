@@ -29,12 +29,12 @@ jobs:
   build-matrix:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Set up Go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v6
         with:
           go-version: 'oldstable'
 
@@ -117,10 +117,10 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Get Current Job Log URL
-        uses: Tiryoh/gha-jobid-action@v0
+        uses: Tiryoh/gha-jobid-action@v1
         id: jobs
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -210,7 +210,7 @@ jobs:
     if: always() && !github.event.pull_request.draft
     steps:
       - uses: technote-space/workflow-conclusion-action@v3
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Check Failure
         if: env.WORKFLOW_CONCLUSION == 'failure'

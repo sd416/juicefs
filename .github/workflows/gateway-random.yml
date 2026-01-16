@@ -54,7 +54,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
 
@@ -83,7 +83,7 @@ jobs:
           
       - name: Download example database
         timeout-minutes: 5
-        uses: dawidd6/action-download-artifact@v9
+        uses: dawidd6/action-download-artifact@v12
         if: false
         with:
           name: gateway-hypothesis-example-db-${{ matrix.meta }}
@@ -118,7 +118,7 @@ jobs:
           fi
 
       - name: Upload example database
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         if: false
         with:
           include-hidden-files: true
@@ -144,7 +144,7 @@ jobs:
     if: always()
     steps:
       - uses: technote-space/workflow-conclusion-action@v3
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Check Failure
         if: env.WORKFLOW_CONCLUSION == 'failure'

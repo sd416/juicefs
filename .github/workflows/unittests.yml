@@ -68,7 +68,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
 
@@ -101,7 +101,7 @@ jobs:
 
       - if: matrix.test == 'test.meta.non-core'
         name: Install redis-cluster
-        uses: vishnudxb/redis-cluster@1.0.5
+        uses: vishnudxb/redis-cluster@1.0.9
         with:
           master1-port: 7000
           master2-port: 7001
@@ -134,7 +134,7 @@ jobs:
           UPLOAD_TOKEN: ${{ secrets.CI_COVERAGE_FILE_UPLOAD_AUTH_TOKEN }}
 
       - name: Code Coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
           files: cover/cover.txt
 
@@ -150,7 +150,7 @@ jobs:
     if: always()
     steps:
       - uses: technote-space/workflow-conclusion-action@v3
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Check Failure
         if: env.WORKFLOW_CONCLUSION == 'failure'
